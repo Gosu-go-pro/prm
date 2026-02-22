@@ -26,6 +26,8 @@ Package này minh họa **2 cách xử lý “moving obstacles” và “multi�
 
 ## GIF 1 — Moving obstacle → CT‑space (s × t)
 
+![GIF 1 — Moving obstacle CT-space](1_moving_obstacle_ctspace.gif)
+
 **Panel trái (Workspace):**
 - Robot đi trên **đường ngang** từ start -> goal.
 - Một obstacle hình tròn **quét theo trục y**, cắt ngang đường robot trong một “cửa sổ thời gian” (khoảng giữa).
@@ -43,6 +45,8 @@ Trong không gian $(s,t)$, “đợi” tương đương với **đi thẳng the
 ---
 
 ## GIF 2 — Multi‑robot → Coordination diagram (s1 × s2)
+
+![GIF 2 — Multi-robot coordination](2_multirobot_coordination.gif)
 
 **Panel trái (Workspace):**
 - Robot 1 đi ngang, robot 2 đi dọc -> hai đường đi **cắt nhau**.

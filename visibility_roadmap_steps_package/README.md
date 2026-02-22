@@ -43,6 +43,8 @@ This package contains the **rendered figures** (PNG) and an animated **GIF** tha
 - `visibility_roadmap_steps.gif`  
   Plays the 8 steps in order (slower frame duration for readability) and pauses briefly on the final result.
 
+![Visibility roadmap steps animation](visibility_roadmap_steps.gif)
+
 ---
 
 ## Key concept reminders (why this is a *visibility roadmap*, not a *visibility graph*)

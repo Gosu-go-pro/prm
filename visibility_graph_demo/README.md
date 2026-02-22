@@ -7,7 +7,7 @@ Gói này chứa các ảnh được tạo trực tiếp từ Python để minh 
 - Vật cản: đa giác viền (không tô)
 - **S**: start, **G**: goal
 - Edge (cạnh đồ thị): các đoạn thẳng mảnh giữa các nút nhìn thấy nhau
-- **Reflex vertex**: góc lõm (nội góc > 180°), đánh dấu bằng dấu **x** trong ảnh world
+- **Reflex vertex**: góc lõm (nội góc $> 180^\circ$), đánh dấu bằng dấu **x** trong ảnh world
 
 ## Các ảnh trong gói
 
@@ -19,7 +19,7 @@ Gói này chứa các ảnh được tạo trực tiếp từ Python để minh 
 ![World layout with reflex vertices](01_world_reflex_vertices.png)
 
 
-Hai vật cản đa giác (dạng chữ L) được vẽ bằng đường viền. Start S và Goal G là hai điểm cần nối. Các **reflex vertices** (góc lõm, nội góc > 180°) được đánh dấu bằng dấu **x** vì chúng là ứng viên quan trọng cho đường đi ngắn nhất trong môi trường đa giác.
+Hai vật cản đa giác (dạng chữ L) được vẽ bằng đường viền. Start S và Goal G là hai điểm cần nối. Các **reflex vertices** (góc lõm, nội góc $> 180^\circ$) được đánh dấu bằng dấu **x** vì chúng là ứng viên quan trọng cho đường đi ngắn nhất trong môi trường đa giác.
 
 
 ### Full visibility graph
@@ -30,7 +30,7 @@ Hai vật cản đa giác (dạng chữ L) được vẽ bằng đường viền
 ![Full visibility graph](02_visibility_graph_full.png)
 
 
-Đồ thị nhìn thấy (VG) đầy đủ: **nút = {S,G} ∪ {tất cả đỉnh vật cản}**. Có cạnh giữa hai nút nếu đoạn thẳng nối chúng nằm trong free space (không cắt vào nội thất vật cản). Nhìn vào hình sẽ thấy số cạnh tăng nhanh vì rất nhiều cặp đỉnh có line-of-sight.
+Đồ thị nhìn thấy (VG) đầy đủ: nút $= \{S,G\} \cup V_{\text{obs}}$ (với $V_{\text{obs}}$ là tập tất cả đỉnh vật cản). Có cạnh giữa hai nút nếu đoạn thẳng nối chúng nằm trong free space (không cắt vào nội thất vật cản). Nhìn vào hình sẽ thấy số cạnh tăng nhanh vì rất nhiều cặp đỉnh có line-of-sight.
 
 
 ### Reduced visibility graph
@@ -41,7 +41,7 @@ Hai vật cản đa giác (dạng chữ L) được vẽ bằng đường viền
 ![Reduced visibility graph](03_visibility_graph_reduced.png)
 
 
-Đồ thị nhìn thấy rút gọn (RVG): **nút = {S,G} ∪ {reflex vertices}**. Vì đường đi ngắn nhất trong môi trường đa giác chỉ cần “đổi hướng” tại các **góc lõm**, nên bỏ các góc lồi thường vẫn giữ được nghiệm tối ưu nhưng giảm mạnh số nút/cạnh.
+Đồ thị nhìn thấy rút gọn (RVG): nút $= \{S,G\} \cup V_{\text{reflex}}$ (với $V_{\text{reflex}}$ là tập reflex vertices). Vì đường đi ngắn nhất trong môi trường đa giác chỉ cần “đổi hướng” tại các **góc lõm**, nên bỏ các góc lồi thường vẫn giữ được nghiệm tối ưu nhưng giảm mạnh số nút/cạnh.
 
 
 ### Shortest path on full VG (Dijkstra)
@@ -72,9 +72,9 @@ Chạy Dijkstra trên RVG rút gọn. Nếu mô hình visibility và định ngh
 
 - Reduced VG: nodes = 4, edges = 0
 
-- Shortest path length (full VG) ≈ 0.000
+- Shortest path length (full VG) $\approx 0.000$
 
-- Shortest path length (reduced VG) ≈ 0.000
+- Shortest path length (reduced VG) $\approx 0.000$
 
 
 > Nếu hai độ dài này lệch nhau đáng kể, nguyên nhân thường nằm ở: (1) tiêu chuẩn visibility quá bảo thủ/quá lỏng, (2) môi trường/định nghĩa RVG (chỉ dùng reflex) chưa đủ cho layout cụ thể, hoặc (3) cách xử lý “touching the boundary”.

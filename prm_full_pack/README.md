@@ -26,7 +26,7 @@ Weakness: narrow passages may be under-sampled.
 
 ---
 
-# Image 02 — PRM Classic Step 2: k‑NN Connections
+# Image 02 — PRM Classic Step 2: k-NN Connections
 
 ![Image 02](images/02_prm_classic_step2_connections.png)
 
@@ -42,7 +42,7 @@ Sparse connectivity appears in narrow regions.
 
 ![Image 03](images/03_prm_classic_step3_path.png)
 
-Dijkstra finds shortest collision‑free path.
+Dijkstra finds shortest collision-free path.
 
 Quality depends on sampling density.
 
@@ -122,7 +122,7 @@ Major efficiency gain.
 
 ---
 
-# Image 11 — PRM* Large Graph
+# Image 11 — PRM\* Large Graph
 
 ![Image 11](images/11_prm_star_large_n.png)
 
@@ -132,7 +132,7 @@ Guarantees asymptotic optimality.
 
 ---
 
-# Image 12 — PRM* Smaller Graph
+# Image 12 — PRM\* Smaller Graph
 
 ![Image 12](images/11_prm_star_small_n.png)
 
@@ -162,7 +162,7 @@ Classic PRM | Simple baseline
 Gaussian PRM | Better boundary coverage
 Bridge PRM | Excellent narrow passage handling
 Lazy PRM | Massive speed improvement
-PRM* | Asymptotic optimality
+PRM\* | Asymptotic optimality
 Visibility PRM | Minimal roadmap size
 
 ---

@@ -26,22 +26,14 @@ Trọng tâm là phân biệt giữa:
 
 ### ✅ Phần đúng
 
-1) **Point robot** — chính xác:
-$$
-\mathcal{C}_{\text{obs}} = \mathcal{W}_{\text{obs}}
-$$
+1) **Point robot** — chính xác: $\mathcal{C}_{\text{obs}} = \mathcal{W}_{\text{obs}}$.
 
 2) **Disc robot (r = 0.5)** — đúng ý tưởng Minkowski sum; nhưng nếu thay bằng “rect expansion” thì chỉ còn là **xấp xỉ**.
 
-3) **Axis-aligned rectangle** — ✅ **exact**:
-$$
-[x_1-a,\;x_2+a] \times [y_1-b,\;y_2+b]
-$$
+3) **Axis-aligned rectangle** — ✅ **exact**: $[x_1-a, x_2+a] \times [y_1-b, y_2+b]$.
 
 4) **AABB half-extents cho rotating rectangle** — công thức GPT dùng là đúng:
-$$
-h_x=a|\cos\theta|+b|\sin\theta|,\quad h_y=a|\sin\theta|+b|\cos\theta|
-$$
+$h_x = a|\cos\theta| + b|\sin\theta|, h_y = a|\sin\theta| + b|\cos\theta|$.
 Nhưng bản chất vẫn là **over-approximation**, không phải exact C-space.
 
 ### ⚠️ Điểm cần lưu ý

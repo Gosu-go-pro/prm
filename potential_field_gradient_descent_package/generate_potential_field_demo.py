@@ -24,6 +24,7 @@ from collections import deque
 # ── Output directory ───────────────────────────────────────────
 OUT = Path(__file__).resolve().parent
 
+_EPS = 1e-4  # small epsilon to avoid division by zero
 
 # ══════════════════════════════════════════════════════════════
 #  Potential helpers
@@ -36,11 +37,10 @@ def attractive_potential(X, Y, q_goal, xi=1.0):
 
 def repulsive_potential_single(X, Y, obs_center, obs_radius, eta=1.0, Q_star=2.0):
     """U_rep for one circular obstacle."""
-    d = np.sqrt((X - obs_center[0]) ** 2 + (Y - obs_center[1]) ** 2) - obs_radius
-    d = np.maximum(d, 1e-4)
+    dist_center = np.sqrt((X - obs_center[0]) ** 2 + (Y - obs_center[1]) ** 2)
+    d = np.maximum(dist_center - obs_radius, _EPS)
     U = np.where(d <= Q_star, 0.5 * eta * (1.0 / d - 1.0 / Q_star) ** 2, 0.0)
-    # inside obstacle → very high
-    inside = np.sqrt((X - obs_center[0]) ** 2 + (Y - obs_center[1]) ** 2) < obs_radius
+    inside = dist_center < obs_radius
     U[inside] = np.nan
     return U
 
@@ -74,8 +74,8 @@ def gradient_descent(q_start, q_goal, obstacles, xi=1.0, eta=1.0,
             diff = q - np.array([cx, cy])
             dist_center = np.linalg.norm(diff)
             d = dist_center - r
-            if d < 1e-4:
-                d = 1e-4
+            if d < _EPS:
+                d = _EPS
             if d <= Q_star:
                 mag = -eta * (1.0 / d - 1.0 / Q_star) / (d ** 2)
                 direction = diff / dist_center

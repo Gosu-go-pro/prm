@@ -30,20 +30,26 @@ Thêm đường đi mẫu hợp lệ trong hình free space để hoàn chỉnh 
 ## Cơ sở toán học (đúng cho translation-only)
 
 ### Định nghĩa C-space obstacles theo từng vật cản
+
 $$
 C_{O_i} = \{q\in C \mid (R+q)\cap O_i \neq \emptyset\}
 $$
+
 Với robot chỉ tịnh tiến và robot được neo tại gốc (reference), ta có:
+
 $$
 C_{O_i} = O_i \oplus (-R)
 $$
+
 Trong đó $-R$ là robot phản xạ qua gốc.
 
 ### Vùng cấm tổng và free space
+
 $$
 C_{\text{obs}} = \bigcup_i C_{O_i}, \qquad
 F = C \setminus C_{\text{obs}}
 $$
+
 $$
 C = F \cup C_{\text{obs}}, \qquad F\cap C_{\text{obs}}=\emptyset
 $$

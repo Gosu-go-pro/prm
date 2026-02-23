@@ -34,7 +34,7 @@ Ví dụ base 2:
 - $2 = 10_2 \Rightarrow \phi_2(2) = 0.01_2 = 0.25$
 - $3 = 11_2 \Rightarrow \phi_2(3) = 0.11_2 = 0.75$
 
-Mỗi điểm mới **chia đôi khoảng trống lớn nhất** — đây là tính chất quan trọng nhất.
+Chuỗi được thiết kế để lấp dần các khoảng trống lớn, nên coverage tăng đều theo $N$.
 
 ---
 
@@ -86,7 +86,7 @@ $$
 D^{\ast} = O\!\left(\frac{(\log N)^d}{N}\right)
 $$
 
-so với pseudorandom chỉ đạt $O(1/\sqrt{N})$ (theo Koksma).
+Trong bài toán tích phân, Monte Carlo pseudorandom thường hội tụ theo tốc độ trung bình cỡ $O(N^{-1/2})$, chậm hơn low-discrepancy khi số chiều không quá lớn.
 
 ---
 

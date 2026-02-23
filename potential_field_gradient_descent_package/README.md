@@ -149,8 +149,8 @@ Setup: $q_{start}=(1,5)$, $q_{goal}=(9,5)$, vật cản **ngay giữa** tại $(
 
 Giải pháp cho vấn đề local minimum: dùng **wavefront/brushfire** trên lưới rời rạc.
 - BFS từ goal: mỗi ô ghi khoảng cách (số bước) đến goal.
-- Truy ngược từ start → goal theo ô giảm dần → **luôn tìm được đường ngắn nhất**.
-→ **Complete** (nếu đường tồn tại, luôn tìm được) — khác với potential field.
+- Truy ngược từ start → goal theo ô giảm dần → tìm được đường ngắn nhất **trên mô hình lưới đã chọn**.
+→ **Complete trên lưới rời rạc** (nếu đường tồn tại trong lưới, luôn tìm được) — khác với APF gradient descent.
 
 ---
 
@@ -178,7 +178,7 @@ Giải pháp cho vấn đề local minimum: dùng **wavefront/brushfire** trên 
 
 - **Navigation Function**: thiết kế $U(q)$ đặc biệt sao cho chỉ có **đúng 1 minimum** (tại goal).
 - **Randomized escape**: khi phát hiện kẹt, thêm nhiễu ngẫu nhiên.
-- **Wavefront/Brushfire** (Image 7): dùng BFS trên lưới → complete, luôn tìm đường nếu tồn tại.
+- **Wavefront/Brushfire** (Image 7): dùng BFS trên lưới → complete trong lưới, và tối ưu theo metric lưới (4-neighbor/8-neighbor).
 - **Kết hợp PRM/RRT**: dùng potential field làm local planner, sampling-based làm global planner.
 
 ---

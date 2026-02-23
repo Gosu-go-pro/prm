@@ -80,7 +80,7 @@ Fix: thêm trail mờ của tất cả vị trí −R trước đó.
 - Vật cản **O**: hình chữ nhật xanh (fill nhạt).
 - **Robot R tại origin**: cam, nét đứt (reference).
 - Ba cấu hình:
-  - $q_1=(1.0,0.8)$ **✓** (đỏ) — không va chạm.
+  - $q_1=(0.5,0.3)$ **✓** (đỏ) — không va chạm.
   - $q_2=(2.5,2.0)$ **✗** (hồng) — va chạm (hatch).
   - $q_3=(5.6,3.7)$ **✗** (cyan) — va chạm (hatch).
 - Dấu chấm tại q là **reference point**.

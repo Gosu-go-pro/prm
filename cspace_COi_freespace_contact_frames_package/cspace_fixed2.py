@@ -355,8 +355,9 @@ ax.text(*centroid(CO2), r"$C_{O_2}$" + "\n(forbidden)", ha="center", va="center"
 # Free space label
 ax.text(1.0, 6.4, r"$F = C_{free}$", fontsize=12, color="#1B5E20", fontweight="bold")
 
-# Example path waypoints in F (hand-verified to avoid C_obs regions)
-wpts = np.array([[0.5,6.5],[0.5,3.5],[1.0,0.4],[5.5,0.4],[9.2,0.4],[9.2,6.5]])
+# Example path waypoints in F (verified to avoid C_obs regions)
+# Route: left of CO1 → above CO1 → through gap → below CO2 → right of CO2
+wpts = np.array([[0.5,6.5],[0.5,3.8],[5.3,3.8],[5.3,1.5],[9.2,1.5],[9.2,6.5]])
 ax.plot(wpts[:,0], wpts[:,1], color=C["path"], lw=3, ls="-",
         marker=".", markersize=10, zorder=8, label=r"valid path $\sigma(t)\subset F$")
 ax.scatter(*wpts[0], s=180, color=C["path"], marker="*",

@@ -81,7 +81,7 @@ STYLE = dict(fontsize=10)
 # PLOT 1 — Workspace với legend phân biệt rõ ràng
 # FIX: thêm legend, label từng q, tô màu vùng O, ghi rõ collision / free
 # ══════════════════════════════════════════════════════════════════════════════
-Qs = np.array([[1.0, 0.8], [2.5, 2.0], [5.6, 3.7]])
+Qs = np.array([[0.5, 0.3], [2.5, 2.0], [5.6, 3.7]])
 Q_labels  = ["q₁  (free – không va chạm)", "q₂  (collision – va chạm)", "q₃  (collision – va chạm)"]
 Q_colors  = [C_q1, C_q2, C_q3]
 Q_collide = [False, True, True]

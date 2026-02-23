@@ -15,7 +15,7 @@ Let $F$ be free space, and let $\mu(\cdot)$ denote volume (measure).
 ### 1. Visibility set of a configuration
 
 $$
-V(q) = \{ q' \in F \mid \overline{qq'} \subset F \}
+V(q) = \lbrace q' \in F \mid \overline{qq'} \subset F \rbrace
 $$
 
 So $V(q)$ is the set of free configurations directly visible from $q$.
@@ -32,9 +32,9 @@ Interpretation: every point can "see" at least an $\epsilon$ fraction of free sp
 
 $$
 \beta\text{-lookout}(S)
-= \left\{ q \in S \mid
+= \left\lbrace q \in S \mid
 \frac{\mu\big(V(q) \cap (F \setminus S)\big)}{\mu(F \setminus S)} \ge \beta
-\right\}
+\right\rbrace
 $$
 
 Interpretation: points in $S$ that can see a significant fraction of the outside region $F \setminus S$.

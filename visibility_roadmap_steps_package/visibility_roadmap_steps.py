@@ -144,12 +144,8 @@ def add_legend(ax, extras=None):
 saved = []
 
 # Step 1: environment
-fig, ax = base_fig("Step 1 — Define C-space Environment
-(C_free = white, C_obs = blue rectangles)")
-labels = ["Obs A
-(left block)", "Obs B
-(right-top)", "Obs C
-(right-bottom)"]
+fig, ax = base_fig("Step 1 — Define C-space Environment\n(C_free = white, C_obs = blue rectangles)")
+labels = ["Obs A\n(left block)", "Obs B\n(right-top)", "Obs C\n(right-bottom)"]
 centers = [(3.0,2.4),(7.25,4.5),(5.8,1.3)]
 for lbl,cen in zip(labels,centers):
     ax.text(cen[0],cen[1],lbl,ha="center",va="center",fontsize=8.5,color="#1a5276",fontweight="bold")
@@ -160,19 +156,15 @@ p=outdir/"step01_environment.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); p
 
 # Step 2: init graph (S,G)
 V2 = [start, goal]
-fig, ax = base_fig("Step 2 — Initialise Graph with Mandatory Milestones
-V = {q_start, q_goal},  E = ∅")
+fig, ax = base_fig("Step 2 — Initialise Graph with Mandatory Milestones\nV = {q_start, q_goal},  E = ∅")
 draw_nodes(ax, V2)
-ax.annotate("Mandatory
-milestone", xy=start, xytext=(start[0]+0.8,start[1]+1.2), arrowprops=dict(arrowstyle="->",color=START_COLOR), fontsize=9, color=START_COLOR)
-ax.annotate("Mandatory
-milestone", xy=goal,  xytext=(goal[0]-2.5,goal[1]-1.0), arrowprops=dict(arrowstyle="->",color=GOAL_COLOR), fontsize=9, color=GOAL_COLOR)
+ax.annotate("Mandatory\nmilestone", xy=start, xytext=(start[0]+0.8,start[1]+1.2), arrowprops=dict(arrowstyle="->",color=START_COLOR), fontsize=9, color=START_COLOR)
+ax.annotate("Mandatory\nmilestone", xy=goal,  xytext=(goal[0]-2.5,goal[1]-1.0), arrowprops=dict(arrowstyle="->",color=GOAL_COLOR), fontsize=9, color=GOAL_COLOR)
 add_legend(ax)
 p=outdir/"step02_init_graph.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
 
 # Step 3: samples
-fig, ax = base_fig(f"Step 3 — Sample {len(extra)} Random Milestones in C_free
-V = {{q_start, q_goal}} ∪ {{q_2,...,q_{len(V)-1}}},  E = ∅")
+fig, ax = base_fig(f"Step 3 — Sample {len(extra)} Random Milestones in C_free\nV = {{q_start, q_goal}} ∪ {{q_2,...,q_{len(V)-1}}},  E = ∅")
 draw_nodes(ax, V)
 rect = plt.Rectangle((XMIN,YMIN),XMAX-XMIN,YMAX-YMIN, fill=False, edgecolor="#27ae60", linewidth=2, linestyle="--", alpha=0.5)
 ax.add_patch(rect); ax.text(5,6.6,"Sampling region C_free",ha="center",fontsize=9,color="#27ae60",style="italic")
@@ -180,12 +172,10 @@ add_legend(ax)
 p=outdir/"step03_sample_milestones.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
 
 # Step 4a: blocked S-G
-fig, ax = base_fig("Step 4a — Visibility Test: Edge BLOCKED
-Line(q_start, q_goal) ∩ C_obs ≠ ∅  →  reject edge")
+fig, ax = base_fig("Step 4a — Visibility Test: Edge BLOCKED\nLine(q_start, q_goal) ∩ C_obs ≠ ∅  →  reject edge")
 draw_nodes(ax, V)
 ax.plot([start[0],goal[0]],[start[1],goal[1]], color=TESTED_BLOCKED, linewidth=2.5, linestyle="--", zorder=4)
-ax.text(5.0,3.8,"✗ BLOCKED
-(passes through obstacle)", ha="center", fontsize=11, color=TESTED_BLOCKED, fontweight="bold",
+ax.text(5.0,3.8,"✗ BLOCKED\n(passes through obstacle)", ha="center", fontsize=11, color=TESTED_BLOCKED, fontweight="bold",
         bbox=dict(boxstyle="round,pad=0.3",facecolor="white",edgecolor=TESTED_BLOCKED,alpha=0.85))
 add_legend(ax, [Line2D([0],[0],color=TESTED_BLOCKED,lw=2,linestyle="--",label="Tested (BLOCKED)")])
 p=outdir/"step04a_blocked_edge.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
@@ -198,15 +188,13 @@ for i in range(2,len(V)):
             clear_pair=(i,j); break
     if clear_pair: break
 
-fig, ax = base_fig("Step 4b — Visibility Test: Edge ACCEPTED
-Line(qi, qj) ∩ C_obs = ∅  →  add edge")
+fig, ax = base_fig("Step 4b — Visibility Test: Edge ACCEPTED\nLine(qi, qj) ∩ C_obs = ∅  →  add edge")
 draw_nodes(ax, V)
 if clear_pair:
     a,b=V[clear_pair[0]],V[clear_pair[1]]
     ax.plot([a[0],b[0]],[a[1],b[1]],color=TESTED_OK,linewidth=2.5,zorder=4)
     mid=((a[0]+b[0])/2,(a[1]+b[1])/2)
-    ax.text(mid[0]+0.2,mid[1]+0.25,"✓ ACCEPTED
-(collision-free)", fontsize=10, color=TESTED_OK, fontweight="bold",
+    ax.text(mid[0]+0.2,mid[1]+0.25,"✓ ACCEPTED\n(collision-free)", fontsize=10, color=TESTED_OK, fontweight="bold",
             bbox=dict(boxstyle="round,pad=0.3",facecolor="white",edgecolor=TESTED_OK,alpha=0.85))
 add_legend(ax, [Line2D([0],[0],color=TESTED_OK,lw=2.5,label="Tested (ACCEPTED)")])
 p=outdir/"step04b_accepted_edge.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
@@ -219,8 +207,7 @@ for i in range(N):
         if segment_free(V[i],V[j]):
             E.append((i,j))
 
-fig, ax = base_fig(f"Step 5 — Build Complete Roadmap (All-Pairs Visibility)
-|V|={N} nodes,  |E|={len(E)} collision-free edges")
+fig, ax = base_fig(f"Step 5 — Build Complete Roadmap (All-Pairs Visibility)\n|V|={N} nodes,  |E|={len(E)} collision-free edges")
 draw_edges(ax, V, E); draw_nodes(ax, V); add_legend(ax)
 ax.text(5.0,-0.15,f"All {N*(N-1)//2} pairs tested → {len(E)} edges accepted", ha="center", fontsize=9, color="#555", style="italic")
 p=outdir/"step05_full_roadmap.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
@@ -248,8 +235,7 @@ def dijkstra(src,dst):
 
 path,cost=dijkstra(0,1)
 
-fig, ax = base_fig(f"Step 6 — Graph Search (Dijkstra): Shortest Path Found
-Path length ≈ {cost:.2f} through {len(path)} waypoints")
+fig, ax = base_fig(f"Step 6 — Graph Search (Dijkstra): Shortest Path Found\nPath length ≈ {cost:.2f} through {len(path)} waypoints")
 draw_edges(ax, V, E); draw_nodes(ax, V)
 if path:
     px=[V[n][0] for n in path]; py=[V[n][1] for n in path]
@@ -260,17 +246,16 @@ add_legend(ax, [Line2D([0],[0],color=PATH_COLOR,lw=4,label=f"Shortest path (≈{
 p=outdir/"step06_shortest_path.png"; fig.savefig(p,dpi=150,bbox_inches="tight"); plt.close(fig); saved.append(p)
 
 # Step 7: final summary
-fig, ax = base_fig("Final — Visibility Roadmap Summary
-G = (V, E): nodes = safe configs, edges = collision-free LOS")
+fig, ax = base_fig("Final — Visibility Roadmap Summary\nG = (V, E): nodes = safe configs, edges = collision-free LOS")
 draw_edges(ax, V, E)
 if path:
     px=[V[n][0] for n in path]; py=[V[n][1] for n in path]
     ax.plot(px,py,color=PATH_COLOR,linewidth=5,zorder=6,solid_capstyle="round",alpha=0.9)
 draw_nodes(ax, V)
-info=(f"Milestones |V| = {N}
-Edges      |E| = {len(E)}
-Path nodes      = {len(path)}
-Path length ≈ {cost:.2f}")
+info=(f"Milestones |V| = {N}\n"
+      f"Edges      |E| = {len(E)}\n"
+      f"Path nodes      = {len(path)}\n"
+      f"Path length ≈ {cost:.2f}")
 ax.text(0.02,0.02,info, transform=ax.transAxes, fontsize=9, verticalalignment="bottom",
         bbox=dict(boxstyle="round,pad=0.5",facecolor="white",edgecolor="#aaa",alpha=0.9))
 add_legend(ax, [Line2D([0],[0],color=PATH_COLOR,lw=4,label=f"Optimal path (≈{cost:.2f})")])

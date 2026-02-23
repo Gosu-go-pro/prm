@@ -39,10 +39,10 @@ $$
 Cho mỗi vật cản, với $d(q)$ là khoảng cách từ $q$ đến biên vật cản:
 
 $$
-U_{rep}(q) = \begin{cases} \frac{1}{2} \eta \left(\frac{1}{d(q)} - \frac{1}{Q^*}\right)^2 & \text{if } d(q) \leq Q^* \\ 0 & \text{if } d(q) > Q^* \end{cases}
+U_{rep}(q) = \begin{cases} \frac{1}{2} \eta \left(\frac{1}{d(q)} - \frac{1}{Q^{*}}\right)^2 & \text{if } d(q) \leq Q^{*} \\ 0 & \text{if } d(q) > Q^{*} \end{cases}
 $$
 
-Với $\eta > 0$ là hệ số đẩy, $Q^*$ là ngưỡng ảnh hưởng (influence distance).
+Với $\eta > 0$ là hệ số đẩy, $Q^{*}$ là ngưỡng ảnh hưởng (influence distance).
 
 ### 3. Total Potential
 
@@ -86,7 +86,7 @@ Hình dạng **paraboloid (bát)** — minimum tại goal, tăng dần khi xa go
 
 Bề mặt 3D của $U_{rep}$ quanh vật cản tròn tại $(3,3)$, bán kính $r=1.0$.
 - Gần biên vật cản: $U_{rep}$ tăng vọt (vô cực khi $d \to 0$).
-- Ngoài vùng ảnh hưởng $Q^*=2.0$: $U_{rep}=0$.
+- Ngoài vùng ảnh hưởng $Q^{*}=2.0$: $U_{rep}=0$.
 → Tạo "bức tường vô hình" đẩy robot ra xa.
 
 ---

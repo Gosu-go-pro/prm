@@ -15,7 +15,7 @@ Pseudorandom sampling (ví dụ dùng LCG, Mersenne Twister) có thể sinh ra c
 **Quasirandom sequences** (còn gọi là low-discrepancy sequences) khắc phục bằng cách:
 - Lấp đầy không gian **đồng đều hơn** pseudorandom
 - **Incremental**: có thể thêm điểm mà không cần biết trước $N$ (Halton)
-- Có **bound lý thuyết** cho discrepancy: $D^* = O((\log N)^d / N)$
+- Có **bound lý thuyết** cho discrepancy: $D^{*} = O((\log N)^d / N)$
 
 ---
 
@@ -66,24 +66,24 @@ $$
 
 ---
 
-## Metric 1: Star Discrepancy $D^*$
+## Metric 1: Star Discrepancy $D^{*}$
 
 Star discrepancy đo mức **không đều** của tập điểm $P = \{p_1, \dots, p_N\}$ so với phân phối đều. Xét tất cả các hình chữ nhật $R = [0,a_1] \times [0,a_2] \times \cdots \times [0,a_d]$ neo tại gốc:
 
 $$
-D^*(P) = \sup_{R \in \mathcal{R}^*} \left| \mu(R) - \frac{|P \cap R|}{N} \right|
+D^{*}(P) = \sup_{R \in \mathcal{R}^{*}} \left| \mu(R) - \frac{|P \cap R|}{N} \right|
 $$
 
 trong đó:
 - $\mu(R) = a_1 \cdot a_2 \cdots a_d$ là thể tích (xác suất lý thuyết)
 - $|P \cap R|/N$ là tỷ lệ điểm thực tế rơi trong $R$
 
-**Ý nghĩa:** $D^* \to 0$ khi $N \to \infty$ nghĩa là tập điểm hội tụ về phân phối đều.
+**Ý nghĩa:** $D^{*} \to 0$ khi $N \to \infty$ nghĩa là tập điểm hội tụ về phân phối đều.
 
 **Bound cho Halton/Hammersley:**
 
 $$
-D^* = O\!\left(\frac{(\log N)^d}{N}\right)
+D^{*} = O\!\left(\frac{(\log N)^d}{N}\right)
 $$
 
 so với pseudorandom chỉ đạt $O(1/\sqrt{N})$ (theo Koksma).
@@ -109,7 +109,7 @@ $$
 Có quan hệ một chiều:
 
 $$
-\delta(P) \leq C \cdot D^*(P)^{1/d}
+\delta(P) \leq C \cdot D^{*}(P)^{1/d}
 $$
 
 Tức là:
@@ -183,7 +183,7 @@ Minh hoạ dispersion: vòng tròn đỏ là **largest empty ball** — quả c�
 
 ![img7](img7_comparison_all.png)
 
-So sánh 4 phương pháp (256 điểm mỗi loại): pseudorandom, grid, Halton, Hammersley. Mỗi panel hiển thị vòng tròn dispersion và giá trị xấp xỉ $D^*$, $\delta$.
+So sánh 4 phương pháp (256 điểm mỗi loại): pseudorandom, grid, Halton, Hammersley. Mỗi panel hiển thị vòng tròn dispersion và giá trị xấp xỉ $D^{*}$, $\delta$.
 → Halton và Hammersley có cả discrepancy và dispersion tốt hơn pseudorandom.
 
 ---
